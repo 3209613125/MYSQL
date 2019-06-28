@@ -1,0 +1,80 @@
+对于表actor批量插入如下数据
+CREATE TABLE IF NOT EXISTS actor (
+actor_id smallint(5) NOT NULL PRIMARY KEY,
+first_name varchar(45) NOT NULL,
+last_name varchar(45) NOT NULL,
+last_update timestamp NOT NULL DEFAULT (datetime('now','localtime')))
+
+actor_id	first_name	last_name	last_update
+1        	PENELOPE	  GUINESS	  2006-02-15 12:34:33
+2	        NICK	      WAHLBERG	2006-02-15 12:34:33
+
+-- 方法一：
+insert into actor (actor_id, first_name, last_name, last_update)
+values
+(1, 'PENELOPE', 'GUINESS', '2006-02-15 12:34:33'),
+(2, 'NICK', 'WAHLBERG','2006-02-15 12:34:33');
+-- 方法二：
+insert into actor values (1,'PENELOPE','GUINESS','2006-02-15 12:34:33'), (2,'NICK','WAHLBERG','2006-02-15
+12:34:33');
+
+------------------------------------------------------------------------------------------------------------
+
+找出所有员工当前(to_date='9999-01-01')具体的薪水salary情况，对于相同的薪水只显示一次,并按照逆序显示
+CREATE TABLE `salaries` (
+`emp_no` int(11) NOT NULL,
+`salary` int(11) NOT NULL,
+`from_date` date NOT NULL,
+`to_date` date NOT NULL,
+PRIMARY KEY (`emp_no`,`from_date`));
+
+-- 方法一：
+select salary from salaries where to_date = '9999-01-01' group by salary order by salary desc;
+-- 方法二：
+select distinct salary from salaries where to_date='9999-01-01' order by salary desc;
+
+------------------------------------------------------------------------------------------------------------
+
+查找最晚入职员工的所有信息
+CREATE TABLE `employees` (
+`emp_no` int(11) NOT NULL,
+`birth_date` date NOT NULL,
+`first_name` varchar(14) NOT NULL,
+`last_name` varchar(16) NOT NULL,
+`gender` char(1) NOT NULL,
+`hire_date` date NOT NULL,
+PRIMARY KEY (`emp_no`));
+输入描述:
+无
+输出描述:
+emp_no	birth_date	first_name	last_name	gender	hire_date
+
+10008
+
+1958-02-19
+
+Saniya
+
+Kalloufi
+
+M
+
+1994-09-15
+
+方法1:
+select * from employees order by hire_date desc limit 1;
+方法2:
+select * from employees where hire_date = (select max(hire_date) from employees);
+方法3:
+select * from employees order by hire_date desc limit 1 offset 0;
+方法4:
+select * from employees order by hire_date desc limit 0,1;
+
+----------------------------------------------------------------------------------------------------------
+查找入职员工时间排名倒数第三的员工所有信息
+
+方法1：
+select * from employees order by hire_date desc limit 2,1;
+
+方法二：
+select * from employees order by hire_date desc limit 1 offset 2;
