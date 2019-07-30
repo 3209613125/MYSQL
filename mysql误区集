@@ -1,0 +1,16 @@
+修改表：ALTER TABLE
+
+校验整数列 i 的值不小于 1 不大于 10
+
+在学生表 Student 的系别 (Sdept) 属性中查询信息系 (IS) 、数学系 (MA) 和计算机系 (CS) 的学生姓名 (Sname)
+和性别 (Ssex) ，正确的命名格式应为：
+
+select Sname,Ssex from Student where Sdept in ("IS","MA","CS")
+
+
+
+SQL 查询语句中 WHERE 、 GROUP BY 、 HAVING 这些关键字区别和用法总结
+HAVING在查询语句中必须依赖于GROUP BY
+having应该是用于筛选行而不是筛选列
+WHERE子句用来限制SELECT语句从表中指定选取的行
+GROUP BY子句用来分组WHERE子句的输出结果集
