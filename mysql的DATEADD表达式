@@ -1,0 +1,10 @@
+订单表 ( 订单号，雇员代号，地区代号，订购日期 ) 中订单号为主键，要删除订单中前三年以前的信息， SQL 为：
+delete from 订单表 where 订购日期<DATEADD(yy,-3,getdate())
+
+*DATEADD函数是在日期中添加或者减去指定的时间间隔
+语法：DATEADD(department,number,date)
+
+department是参数的取值范围:
+{yy/yyyy,qq/q,mm/m,dy/y,dd/d,wk/ww,dw/w,hh,mi/n,ss/s,ms,mcs,ns}
+number:是您希望添加的间隔数
+data:合法的日期表达式
