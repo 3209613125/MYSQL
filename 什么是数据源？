@@ -1,0 +1,14 @@
+数据源是指数据库应用程序所使用的数据库或者数据库服务器。
+数据源（Data Source）顾名思义，数据的来源，是提供某种所需要数据的器件或原始媒体。
+在数据源中存储了所有建立数据库连接的信息。就像通过指定文件名称可以在文件系统中找到文件一样，
+通过提供正确的数据源名称，你可以找到相应的数据库连接。
+属性编辑
+1. databaseName String数据库名称，即数据库的SID。
+2. dataSourceName String数据源接口实现类的名称。
+3. description String 对数据源的描述。
+4. networkProtocol String 和服务器通讯使用的网络协议名。
+5. password String 用户登录密码。
+6. portNumber数据库服务器使用的端口。
+7. serverName String数据库服务器名称。
+8. user String 用户登录名。
+如果数据是水，数据库就是水库，数据源就是连接水库的管道，终端用户看到的数据集是管道里流出来的水。
