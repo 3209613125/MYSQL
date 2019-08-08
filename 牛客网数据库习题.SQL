@@ -70,7 +70,7 @@ select * from employees order by hire_date desc limit 1 offset 0;
 方法4:
 select * from employees order by hire_date desc limit 0,1;
 
-----------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------
 查找入职员工时间排名倒数第三的员工所有信息
 
 方法1：
@@ -78,7 +78,7 @@ select * from employees order by hire_date desc limit 2,1;
 
 方法二：
 select * from employees order by hire_date desc limit 1 offset 2;
------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
 查找薪水涨幅超过15次的员工号emp_no以及其对应的涨幅次数t
 CREATE TABLE `salaries` (
 `emp_no` int(11) NOT NULL,
@@ -98,3 +98,4 @@ where m.emp_no = s.emp_no and m.to_date = '9999-01-01'and s.to_date = '9999-01-0
 从titles表获取按照title进行分组，每组个数大于等于2，给出title以及对应的数目t。
 
 select title ,count(title) as t from titles group by title having t >= 2;
+---------------------------------------------------------------------------------------------------------------
