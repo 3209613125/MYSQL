@@ -94,3 +94,7 @@ select emp_no ,count(emp_no) as t from salaries group by emp_no having t > 15;
 --多表查询
 select m.dept_no,m.emp_no,s.salary from dept_manager as m ,salaries as s
 where m.emp_no = s.emp_no and m.to_date = '9999-01-01'and s.to_date = '9999-01-01';
+---------------------------------------------------------------------------------------------------------------
+从titles表获取按照title进行分组，每组个数大于等于2，给出title以及对应的数目t。
+
+select title ,count(title) as t from titles group by title having t >= 2;
