@@ -110,3 +110,5 @@ select Email from Person group by Email having count(Email) > 1;
 例如，根据上表，我们应该输出:
 
 select name,population,area from World where population > 25000000 or area > 3000000;
+
+select name,population,area from World where population > 25000000 union select name,population,area from World where area > 3000000;
