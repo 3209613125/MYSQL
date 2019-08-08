@@ -102,3 +102,11 @@ select title ,count(title) as t from titles group by title having t >= 2;
 编写一个 SQL 查询，查找 Person 表中所有重复的电子邮箱。
 
 select Email from Person group by Email having count(Email) > 1;
+--------------------------------------------------------------------------------------------------------------
+如果一个国家的面积超过300万平方公里，或者人口超过2500万，那么这个国家就是大国家。
+
+编写一个SQL查询，输出表中所有大国家的名称、人口和面积。
+
+例如，根据上表，我们应该输出:
+
+select name,population,area from World where population > 25000000 or area > 3000000;
