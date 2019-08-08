@@ -92,10 +92,5 @@ select emp_no ,count(emp_no) as t from salaries group by emp_no having t > 15;
 获取所有部门当前manager的当前薪水情况，给出dept_no, emp_no以及salary，当前表示to_date='9999-01-01'
 
 --多表查询
-select m.dept_no,m.emp_no,s.salary
-from
-dept_manager as m,
-salaries as s
-where m.emp_no = s.emp_no
-and s.to_date='9999-01-01'
-and m.to_date='9999-01-01'
+select m.dept_no,m.emp_no,s.salary from dept_manager as m ,salaries as s
+where m.emp_no = s.emp_no and m.to_date = '9999-01-01'and s.to_date = '9999-01-01';
